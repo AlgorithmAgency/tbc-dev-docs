@@ -28,772 +28,107 @@
     --font-sans:     'Space Grotesk', -apple-system, sans-serif;
     --font-mono:     'JetBrains Mono', monospace;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-sans);
-    background: var(--dark-bg);
-    color: var(--dark-text);
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  /* ── GRADIENT TEXT ── */
-  .gradient-text {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ── HEADER ── */
-  header {
-    background: rgba(5,7,11,0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 16px 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .header-logo {
-    width: 32px;
-    height: 32px;
-    background: var(--gradient);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 14px;
-    color: white;
-    flex-shrink: 0;
-  }
-
-  .header-wordmark {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--dark-text);
-    letter-spacing: -0.01em;
-  }
-
-  .header-sep {
-    width: 1px;
-    height: 16px;
-    background: rgba(255,255,255,0.12);
-  }
-
-  .header-doc {
-    font-size: 13px;
-    color: var(--dark-text-muted);
-    font-weight: 400;
-  }
-
-  .header-badge {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    background: rgba(79,140,255,0.1);
-    color: var(--accent);
-    padding: 3px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(79,140,255,0.2);
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--dark-bg);
-    padding: 88px 2rem 72px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -120px; right: -80px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(79,140,255,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -100px; left: -60px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(0,224,160,0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .hero-label::before {
-    content: '';
-    display: block;
-    width: 6px;
-    height: 40px;
-    background: var(--gradient);
-    border-radius: 3px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    margin-bottom: 20px;
-    color: var(--dark-text);
-  }
-
-  .hero-sub {
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
-    color: var(--dark-text-sub);
-    max-width: 620px;
-    font-weight: 400;
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-
-  .hero-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .hero-chip {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--dark-text-muted);
-    background: rgba(255,255,255,0.03);
-  }
-
-  /* ── META BAR ── */
-  .meta-bar {
-    background: var(--dark-bg-light);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .meta-bar-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 14px 2rem;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .meta-label {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dark-text-muted);
-  }
-
-  .meta-value {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--dark-text-sub);
-  }
-
-  /* ── LAYOUT ── */
-  .layout {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 48px 2rem 88px;
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-
-  /* ── SIDEBAR / TOC ── */
-  .toc {
-    position: sticky;
-    top: 80px;
-  }
-
-  .toc-title {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dark-text-muted);
-    margin-bottom: 14px;
-    padding-left: 2px;
-  }
-
-  .toc nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
-  .toc a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-    border-radius: 6px;
-    text-decoration: none;
-    color: var(--dark-text-muted);
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.2s;
-    border-left: 2px solid transparent;
-  }
-
-  .toc a:hover {
-    background: rgba(79,140,255,0.07);
-    color: var(--accent);
-    border-left-color: var(--accent);
-  }
-
-  .toc a.active {
-    background: rgba(79,140,255,0.07);
-    color: var(--accent);
-    border-left-color: var(--accent);
-  }
-
-  .toc-num {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--accent);
-    min-width: 18px;
-  }
-
-  .toc-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-    margin: 8px 0;
-  }
-
-  /* ── CONTENT ── */
+  body { font-family: var(--font-sans); background: var(--dark-bg); color: var(--dark-text); font-size: 16px; line-height: 1.8; }
+  .gradient-text { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  header { background: rgba(5,7,11,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); position: sticky; top: 0; z-index: 100; }
+  .header-inner { max-width: 1100px; margin: 0 auto; padding: 16px 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .header-logo { width: 32px; height: 32px; background: var(--gradient); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; color: white; flex-shrink: 0; }
+  .header-wordmark { font-size: 15px; font-weight: 700; color: var(--dark-text); letter-spacing: -0.01em; }
+  .header-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.12); }
+  .header-doc { font-size: 13px; color: var(--dark-text-muted); font-weight: 400; }
+  .header-badge { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; background: rgba(79,140,255,0.1); color: var(--accent); padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(79,140,255,0.2); }
+  .hero { background: var(--dark-bg); padding: 88px 2rem 72px; position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .hero::before { content: ''; position: absolute; top: -120px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(79,140,255,0.06) 0%, transparent 70%); pointer-events: none; }
+  .hero::after { content: ''; position: absolute; bottom: -100px; left: -60px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,224,160,0.05) 0%, transparent 70%); pointer-events: none; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+  .hero-label::before { content: ''; display: block; width: 6px; height: 40px; background: var(--gradient); border-radius: 3px; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; color: var(--dark-text); }
+  .hero-sub { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--dark-text-sub); max-width: 620px; font-weight: 400; line-height: 1.7; margin-bottom: 36px; }
+  .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-chip { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); color: var(--dark-text-muted); background: rgba(255,255,255,0.03); }
+  .meta-bar { background: var(--dark-bg-light); border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .meta-bar-inner { max-width: 1100px; margin: 0 auto; padding: 14px 2rem; display: flex; gap: 40px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dark-text-muted); }
+  .meta-value { font-size: 13px; font-weight: 500; color: var(--dark-text-sub); }
+  .layout { max-width: 1100px; margin: 0 auto; padding: 48px 2rem 88px; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  .toc { position: sticky; top: 80px; }
+  .toc-title { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dark-text-muted); margin-bottom: 14px; padding-left: 2px; }
+  .toc nav { display: flex; flex-direction: column; gap: 1px; }
+  .toc a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 6px; text-decoration: none; color: var(--dark-text-muted); font-size: 13px; font-weight: 500; transition: all 0.2s; border-left: 2px solid transparent; }
+  .toc a:hover, .toc a.active { background: rgba(79,140,255,0.07); color: var(--accent); border-left-color: var(--accent); }
+  .toc-num { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--accent); min-width: 18px; }
+  .toc-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); margin: 8px 0; }
   .content { min-width: 0; }
-
-  /* ── PREREQ CARD ── */
-  .prereq-card {
-    background: var(--dark-card);
-    border: 1px solid rgba(79,140,255,0.2);
-    border-radius: 12px;
-    padding: 24px 28px;
-    margin-bottom: 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .prereq-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--gradient);
-  }
-
-  .prereq-card-label {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-
-  .prereq-card h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark-text);
-    margin-bottom: 16px;
-  }
-
-  .prereq-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px 24px;
-  }
-
-  .prereq-list li {
-    font-size: 13px;
-    color: var(--dark-text-sub);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
-  }
-
-  .prereq-list li::before {
-    content: '→';
-    color: var(--accent2);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  /* ── SECTION ── */
-  .section {
-    margin-bottom: 64px;
-    scroll-margin-top: 100px;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
-    margin-bottom: 28px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .section-num-block {
-    width: 44px;
-    height: 44px;
-    background: var(--gradient);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 800;
-    color: white;
-    flex-shrink: 0;
-  }
-
-  .section-header h2 {
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--dark-text);
-    line-height: 1.2;
-  }
-
-  .section-header p {
-    font-size: 13px;
-    color: var(--dark-text-muted);
-    margin-top: 4px;
-  }
-
-  /* ── STEPS ── */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .step {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
-
-  .step:hover {
-    border-color: rgba(79,140,255,0.2);
-    box-shadow: 0 4px 24px rgba(79,140,255,0.06);
-  }
-
-  .step-head {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px 20px;
-  }
-
-  .step-dot {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background: rgba(79,140,255,0.12);
-    border: 1px solid rgba(79,140,255,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-family: var(--font-mono);
-  }
-
-  .step-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--dark-text);
-    line-height: 1.4;
-  }
-
-  .step-sub {
-    font-size: 12px;
-    color: var(--dark-text-muted);
-    margin-top: 2px;
-    font-weight: 400;
-  }
-
-  .step-body {
-    padding: 0 20px 20px 60px;
-    font-size: 13.5px;
-    color: var(--dark-text-sub);
-    line-height: 1.75;
-  }
-
+  .prereq-card { background: var(--dark-card); border: 1px solid rgba(79,140,255,0.2); border-radius: 12px; padding: 24px 28px; margin-bottom: 48px; position: relative; overflow: hidden; }
+  .prereq-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gradient); }
+  .prereq-card-label { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .prereq-card h3 { font-size: 16px; font-weight: 700; color: var(--dark-text); margin-bottom: 16px; }
+  .prereq-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
+  .prereq-list li { font-size: 13px; color: var(--dark-text-sub); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .prereq-list li::before { content: '→'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .section { margin-bottom: 64px; scroll-margin-top: 100px; }
+  .section-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .section-num-block { width: 44px; height: 44px; background: var(--gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: white; flex-shrink: 0; }
+  .section-header h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; letter-spacing: -0.02em; color: var(--dark-text); line-height: 1.2; }
+  .section-header p { font-size: 13px; color: var(--dark-text-muted); margin-top: 4px; }
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s; }
+  .step:hover { border-color: rgba(79,140,255,0.2); box-shadow: 0 4px 24px rgba(79,140,255,0.06); }
+  .step-head { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; }
+  .step-dot { width: 26px; height: 26px; border-radius: 50%; background: rgba(79,140,255,0.12); border: 1px solid rgba(79,140,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--accent); flex-shrink: 0; margin-top: 2px; font-family: var(--font-mono); }
+  .step-title { font-size: 15px; font-weight: 600; color: var(--dark-text); line-height: 1.4; }
+  .step-sub { font-size: 12px; color: var(--dark-text-muted); margin-top: 2px; font-weight: 400; }
+  .step-body { padding: 0 20px 20px 60px; font-size: 13.5px; color: var(--dark-text-sub); line-height: 1.75; }
   .step-body p { margin-bottom: 10px; }
   .step-body p:last-child { margin-bottom: 0; }
-
-  /* ── NAV PATH ── */
-  .nav-path {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    background: var(--dark-bg);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: var(--accent2);
-    padding: 10px 14px;
-    border-radius: 6px;
-    margin: 10px 0;
-    letter-spacing: 0.02em;
-  }
-
+  .nav-path { display: block; font-family: var(--font-mono); font-size: 12px; background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.08); color: var(--accent2); padding: 10px 14px; border-radius: 6px; margin: 10px 0; letter-spacing: 0.02em; }
   .nav-path span { color: var(--dark-text-muted); margin: 0 5px; }
-
-  /* ── CODE BLOCK ── */
   .code-wrap { margin: 12px 0; }
-
-  .code-label {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--dark-text-muted);
-    margin-bottom: 4px;
-  }
-
-  .code-block {
-    background: var(--dark-bg);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 8px;
-    padding: 16px 18px;
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    color: var(--accent2);
-    line-height: 1.8;
-    overflow-x: auto;
-    white-space: pre;
-  }
-
-  /* ── TABLE ── */
-  .g-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 14px 0;
-    font-size: 13px;
-  }
-
-  .g-table th {
-    background: rgba(79,140,255,0.1);
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 10px 14px;
-    text-align: left;
-    border-bottom: 1px solid rgba(79,140,255,0.2);
-  }
-
-  .g-table td {
-    padding: 10px 14px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    color: var(--dark-text-sub);
-    vertical-align: top;
-  }
-
+  .code-label { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dark-text-muted); margin-bottom: 4px; }
+  .code-block { background: var(--dark-bg); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 18px; font-family: var(--font-mono); font-size: 12.5px; color: var(--accent2); line-height: 1.8; overflow-x: auto; white-space: pre; }
+  .g-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  .g-table th { background: rgba(79,140,255,0.1); color: var(--accent); font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid rgba(79,140,255,0.2); }
+  .g-table td { padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: var(--dark-text-sub); vertical-align: top; }
   .g-table tr:last-child td { border-bottom: none; }
   .g-table tr:hover td { background: rgba(255,255,255,0.015); }
-
-  .g-table code {
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    background: rgba(79,140,255,0.08);
-    color: var(--accent);
-    padding: 1px 6px;
-    border-radius: 4px;
-  }
-
-  /* ── TAGS ── */
-  .tag {
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
-
-  .tag-req  { background: rgba(255,100,100,0.12); color: #ff6b6b; }
-  .tag-opt  { background: rgba(0,224,160,0.1); color: var(--accent2); }
-  .tag-hid  { background: rgba(79,140,255,0.1); color: var(--accent); }
-
-  /* ── CALLOUTS ── */
-  .callout {
-    display: flex;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 8px;
-    margin: 12px 0;
-    font-size: 13px;
-    line-height: 1.65;
-  }
-
+  .g-table code { font-family: var(--font-mono); font-size: 11.5px; background: rgba(79,140,255,0.08); color: var(--accent); padding: 1px 6px; border-radius: 4px; }
+  .tag { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; white-space: nowrap; }
+  .tag-req { background: rgba(255,100,100,0.12); color: #ff6b6b; }
+  .tag-opt { background: rgba(0,224,160,0.1); color: var(--accent2); }
+  .tag-hid { background: rgba(79,140,255,0.1); color: var(--accent); }
+  .callout { display: flex; gap: 12px; padding: 14px 16px; border-radius: 8px; margin: 12px 0; font-size: 13px; line-height: 1.65; }
   .callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
-
-  .callout-info {
-    background: rgba(79,140,255,0.07);
-    border-left: 3px solid var(--accent);
-    color: var(--dark-text-sub);
-  }
-
-  .callout-warn {
-    background: rgba(255,200,50,0.07);
-    border-left: 3px solid #f59e0b;
-    color: var(--dark-text-sub);
-  }
-
-  .callout-success {
-    background: rgba(0,224,160,0.07);
-    border-left: 3px solid var(--accent2);
-    color: var(--dark-text-sub);
-  }
-
-  .callout-error {
-    background: rgba(255,100,100,0.07);
-    border-left: 3px solid #ff6b6b;
-    color: var(--dark-text-sub);
-  }
-
-  /* ── MAPPING ROWS ── */
+  .callout-info { background: rgba(79,140,255,0.07); border-left: 3px solid var(--accent); color: var(--dark-text-sub); }
+  .callout-warn { background: rgba(255,200,50,0.07); border-left: 3px solid #f59e0b; color: var(--dark-text-sub); }
+  .callout-success { background: rgba(0,224,160,0.07); border-left: 3px solid var(--accent2); color: var(--dark-text-sub); }
+  .callout-error { background: rgba(255,100,100,0.07); border-left: 3px solid #ff6b6b; color: var(--dark-text-sub); }
   .map-rows { margin: 12px 0; }
-
-  .map-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    font-size: 13px;
-  }
-
+  .map-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 13px; }
   .map-row:last-child { border-bottom: none; }
-
-  .map-key {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    background: rgba(79,140,255,0.08);
-    color: var(--accent);
-    padding: 3px 10px;
-    border-radius: 4px;
-    min-width: 130px;
-    flex-shrink: 0;
-  }
-
-  .map-arrow {
-    color: var(--accent2);
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  .map-val {
-    color: var(--dark-text-sub);
-    font-size: 13px;
-  }
-
-  .map-val em {
-    color: var(--dark-text-muted);
-    font-style: normal;
-    font-size: 12px;
-  }
-
-  /* ── CHECKLIST ── */
-  .checklist {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 10px 0;
-  }
-
-  .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--dark-text-sub);
-    line-height: 1.6;
-  }
-
-  .check-sq {
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid rgba(79,140,255,0.3);
-    border-radius: 3px;
-    flex-shrink: 0;
-    margin-top: 3px;
-    background: rgba(79,140,255,0.04);
-  }
-
-  /* ── TROUBLESHOOT ── */
-  .trouble-item {
-    background: var(--dark-card);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-
-  .trouble-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 20px;
-  }
-
-  .trouble-icon {
-    width: 32px;
-    height: 32px;
-    background: rgba(255,100,100,0.1);
-    border: 1px solid rgba(255,100,100,0.2);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-
-  .trouble-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--dark-text);
-  }
-
-  .trouble-body {
-    padding: 0 20px 18px 64px;
-    font-size: 13px;
-    color: var(--dark-text-sub);
-    line-height: 1.7;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-    margin: 40px 0;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--dark-bg-light);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 40px 2rem;
-    text-align: center;
-  }
-
+  .map-key { font-family: var(--font-mono); font-size: 12px; background: rgba(79,140,255,0.08); color: var(--accent); padding: 3px 10px; border-radius: 4px; min-width: 130px; flex-shrink: 0; }
+  .map-arrow { color: var(--accent2); font-weight: 700; font-size: 14px; }
+  .map-val { color: var(--dark-text-sub); font-size: 13px; }
+  .map-val em { color: var(--dark-text-muted); font-style: normal; font-size: 12px; }
+  .checklist { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--dark-text-sub); line-height: 1.6; }
+  .check-sq { width: 16px; height: 16px; border: 1.5px solid rgba(79,140,255,0.3); border-radius: 3px; flex-shrink: 0; margin-top: 3px; background: rgba(79,140,255,0.04); }
+  .trouble-item { background: var(--dark-card); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  .trouble-head { display: flex; align-items: center; gap: 12px; padding: 16px 20px; }
+  .trouble-icon { width: 32px; height: 32px; background: rgba(255,100,100,0.1); border: 1px solid rgba(255,100,100,0.2); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .trouble-title { font-size: 14px; font-weight: 600; color: var(--dark-text); }
+  .trouble-body { padding: 0 20px 18px 64px; font-size: 13px; color: var(--dark-text-sub); line-height: 1.7; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); margin: 40px 0; }
+  footer { background: var(--dark-bg-light); border-top: 1px solid rgba(255,255,255,0.06); padding: 40px 2rem; text-align: center; }
   .footer-inner { max-width: 1100px; margin: 0 auto; }
-
-  .footer-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .footer-logo-mark {
-    width: 28px; height: 28px;
-    background: var(--gradient);
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 12px;
-    color: white;
-  }
-
-  .footer-logo-name {
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--dark-text);
-  }
-
-  footer p {
-    font-size: 12px;
-    color: var(--dark-text-muted);
-    line-height: 1.8;
-  }
-
-  /* ── RESPONSIVE ── */
+  .footer-logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .footer-logo-mark { width: 28px; height: 28px; background: var(--gradient); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; color: white; }
+  .footer-logo-name { font-weight: 700; font-size: 14px; color: var(--dark-text); }
+  footer p { font-size: 12px; color: var(--dark-text-muted); line-height: 1.8; }
   @media (max-width: 768px) {
     .layout { grid-template-columns: 1fr; padding: 24px 1.25rem 60px; }
     .toc { display: none; }
@@ -803,23 +138,12 @@
     .meta-bar-inner { gap: 20px; padding: 12px 1.25rem; }
     .prereq-list { grid-template-columns: 1fr; }
   }
-
-  /* ── SCROLL REVEAL ── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="header-inner">
     <div class="header-left">
@@ -832,12 +156,11 @@
   </div>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-label">Setup Guide — The Building Company</div>
+    <div class="hero-label">Setup Guide — Buco SA</div>
     <h1>Gravity Forms <span class="gradient-text">→ Zoho CRM</span><br>Integration Guide</h1>
-    <p class="hero-sub">Step-by-step setup for connecting Gravity Forms to The Building Company's Zoho CRM. The CRM is already configured — this guide covers everything needed on the WordPress/GF side.</p>
+    <p class="hero-sub">Step-by-step setup for connecting Gravity Forms to The Building Company's Zoho CRM on the Buco SA site. The CRM is already configured — this guide covers everything needed on the WordPress/GF side.</p>
     <div class="hero-chips">
       <span class="hero-chip">Gravity Forms Elite</span>
       <span class="hero-chip">Zoho CRM Add-On</span>
@@ -845,40 +168,23 @@
       <span class="hero-chip">Branch Routing</span>
       <span class="hero-chip">UTM Tracking</span>
       <span class="hero-chip">Conditional Notifications</span>
+      <span class="hero-chip">POPIA Consent</span>
     </div>
   </div>
 </div>
 
-<!-- META BAR -->
 <div class="meta-bar">
   <div class="meta-bar-inner">
-    <div class="meta-item">
-      <span class="meta-label">Prepared By</span>
-      <span class="meta-value">Algorithm Agency</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Client</span>
-      <span class="meta-value">The Building Company</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Applies To</span>
-      <span class="meta-value">Buco SA, Timbercity, Buco Namibia</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Last Updated</span>
-      <span class="meta-value">May 2026</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Status</span>
-      <span class="meta-value" style="color: var(--accent2);">✓ Production</span>
-    </div>
+    <div class="meta-item"><span class="meta-label">Prepared By</span><span class="meta-value">Algorithm Agency</span></div>
+    <div class="meta-item"><span class="meta-label">Client</span><span class="meta-value">The Building Company</span></div>
+    <div class="meta-item"><span class="meta-label">Applies To</span><span class="meta-value">Buco SA</span></div>
+    <div class="meta-item"><span class="meta-label">Last Updated</span><span class="meta-value">May 2026</span></div>
+    <div class="meta-item"><span class="meta-label">Status</span><span class="meta-value" style="color: var(--accent2);">✓ Production</span></div>
   </div>
 </div>
 
-<!-- MAIN LAYOUT -->
 <div class="layout">
 
-  <!-- TOC SIDEBAR -->
   <aside class="toc">
     <div class="toc-title">Table of Contents</div>
     <nav>
@@ -889,14 +195,17 @@
       <a href="#s3" class="toc-link"><span class="toc-num">03</span> Hidden Fields</a>
       <a href="#s4" class="toc-link"><span class="toc-num">04</span> Branch Notifications</a>
       <a href="#s5" class="toc-link"><span class="toc-num">05</span> CRM Feed Mapping</a>
-      <a href="#s6" class="toc-link"><span class="toc-num">06</span> Test & Verify</a>
+      <a href="#s6" class="toc-link"><span class="toc-num">06</span> POPIA Consent</a>
+      <a href="#s7" class="toc-link"><span class="toc-num">07</span> Duplicate for More Forms</a>
+      <a href="#s8" class="toc-link"><span class="toc-num">08</span> Customer Confirmation</a>
+      <a href="#s9" class="toc-link"><span class="toc-num">09</span> Thank You Pages</a>
+      <a href="#s10" class="toc-link"><span class="toc-num">10</span> Test & Verify</a>
       <div class="toc-divider"></div>
-      <a href="#s7" class="toc-link"><span class="toc-num">07</span> Field Reference</a>
-      <a href="#s8" class="toc-link"><span class="toc-num">08</span> Troubleshooting</a>
+      <a href="#s11" class="toc-link"><span class="toc-num">11</span> Field Reference</a>
+      <a href="#s12" class="toc-link"><span class="toc-num">12</span> Troubleshooting</a>
     </nav>
   </aside>
 
-  <!-- CONTENT -->
   <main class="content">
 
     <!-- PREREQS -->
@@ -909,8 +218,37 @@
         <li>Gravity Forms Zoho CRM Add-On installed (Elite includes this)</li>
         <li>Access to The Building Company Zoho CRM — correct org</li>
         <li>Zoho CRM paid plan active (required for API access)</li>
-        <li>Branch manager email addresses for your brand</li>
+        <li>Buco SA branch list confirmed — all branch names and manager emails</li>
+        <li>Buco SA privacy policy URL confirmed</li>
+        <li>Lead Source picklist values added to Zoho CRM (see Section 05)</li>
       </ul>
+    </div>
+
+    <!-- BRANCH LIST NOTE -->
+    <div class="step reveal" style="margin-bottom: 48px;">
+      <div class="step-head">
+        <div class="step-dot">!</div>
+        <div>
+          <div class="step-title">Branch List &amp; Email Addresses — Collect Before Building</div>
+          <div class="step-sub">This is the most common setup blocker — sort it first</div>
+        </div>
+      </div>
+      <div class="step-body">
+        <p>Before building any forms, collect the following from your Buco SA contact:</p>
+        <ul class="checklist">
+          <li><div class="check-sq"></div>Complete list of all Buco SA branch names — exactly as they should appear in the dropdown</li>
+          <li><div class="check-sq"></div>Branch manager email address for every branch</li>
+          <li><div class="check-sq"></div>A head office or customer care email to use as a catchall for any branches missing a manager email</li>
+        </ul>
+        <div class="callout callout-warn">
+          <span class="callout-icon">⚠️</span>
+          <div>Branch names in the GF dropdown must match the conditional logic values in notifications <strong>exactly</strong> — spacing and capitalisation included. Finalise the branch list before building the form so you don't have to update both the dropdown and 30+ notifications later.</div>
+        </div>
+        <div class="callout callout-info">
+          <span class="callout-icon">💡</span>
+          <div>For branches where no manager email is available yet, use a catchall like <code>customercare@buco.co.za</code> as a temporary placeholder. Update to the correct email once received from the client.</div>
+        </div>
+      </div>
     </div>
 
     <!-- SECTION 1 -->
@@ -922,53 +260,38 @@
           <p>One-time OAuth connection per WordPress site</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">01</div>
-            <div>
-              <div class="step-title">Navigate to the Zoho CRM plugin settings</div>
-              <div class="step-sub">This is the plugin-level settings page — not an individual form</div>
-            </div>
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Navigate to the Zoho CRM plugin settings</div><div class="step-sub">Plugin-level settings — not an individual form</div></div>
           </div>
           <div class="step-body">
             <code class="nav-path">WordPress Admin <span>→</span> Forms <span>→</span> Settings <span>→</span> Zoho CRM</code>
             <p>You should see a button: <strong>"Click here to connect to Zoho CRM"</strong>. If it already says "Connected to Zoho CRM", skip to step 3.</p>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">02</div>
-            <div>
-              <div class="step-title">Complete the OAuth authorisation</div>
-              <div class="step-sub">Log in with The Building Company's Zoho account — not a personal account</div>
-            </div>
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Complete the OAuth authorisation</div><div class="step-sub">Log in with The Building Company's Zoho account — not a personal account</div></div>
           </div>
           <div class="step-body">
             <p>Click the connect button. You will be redirected to Zoho's login page.</p>
             <div class="callout callout-warn">
               <span class="callout-icon">⚠️</span>
-              <div>You must log in to the <strong>correct Zoho organisation</strong> (The Building Company). Logging in with a personal or test account will send leads to the wrong CRM. If unsure, confirm the org name with your Zoho administrator before proceeding.</div>
+              <div>You must log in to the <strong>correct Zoho organisation</strong> (The Building Company). Logging in with a personal or test account will send leads to the wrong CRM.</div>
             </div>
             <p>Select region: <strong>zoho.com</strong>. Authorise all requested permissions. You will be redirected back to GF showing <em>"Connected to Zoho CRM."</em></p>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">03</div>
-            <div>
-              <div class="step-title">Clear the Custom Fields Cache</div>
-              <div class="step-sub">Makes custom fields visible in GF feed mapping</div>
-            </div>
+          <div class="step-head"><div class="step-dot">03</div>
+            <div><div class="step-title">Clear the Custom Fields Cache</div><div class="step-sub">Makes custom fields visible in GF feed mapping</div></div>
           </div>
           <div class="step-body">
-            <p>On the same <strong>Settings → Zoho CRM</strong> page, scroll down and click <strong>"Clear Custom Fields Cache"</strong>.</p>
+            <p>On the same <strong>Settings → Zoho CRM</strong> page, click <strong>"Clear Custom Fields Cache"</strong>.</p>
             <div class="callout callout-info">
               <span class="callout-icon">💡</span>
-              <div>GF caches Zoho field data for 12 hours. Clearing manually ensures your custom fields (Branch, Brand, Topic, TC Opt In) are available immediately in the feed mapping section. If they don't appear later, come back here and clear again.</div>
+              <div>GF caches Zoho field data for 12 hours. Clearing manually ensures your custom fields (Branch, Brand, Topic) are available immediately. If they don't appear in feeds later, come back here and clear again.</div>
             </div>
           </div>
         </div>
@@ -981,41 +304,26 @@
         <div class="section-num-block">2</div>
         <div>
           <h2>Build the Gravity Form</h2>
-          <p>Standard field structure used across all Building Company brand contact forms</p>
+          <p>Standard field structure for a Buco SA contact form</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">01</div>
-            <div>
-              <div class="step-title">Create a new form</div>
-            </div>
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Create a new form</div></div>
           </div>
           <div class="step-body">
             <code class="nav-path">Forms <span>→</span> Add New</code>
             <p>Name it using the convention: <strong>[Brand] — [Form Type]</strong><br>Example: <code>Buco SA — Contact Us</code></p>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">02</div>
-            <div>
-              <div class="step-title">Add the standard contact fields</div>
-              <div class="step-sub">Use the GF "Name" field type — it captures first and last in one field with sub-IDs</div>
-            </div>
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Add the standard contact fields</div><div class="step-sub">Use the GF "Name" field type — captures first and last in one field with sub-IDs</div></div>
           </div>
           <div class="step-body">
             <table class="g-table">
-              <thead>
-                <tr>
-                  <th>Field Label</th>
-                  <th>GF Field Type</th>
-                  <th>Required</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Field Label</th><th>GF Field Type</th><th>Required</th></tr></thead>
               <tbody>
                 <tr><td>Name</td><td>Name</td><td><span class="tag tag-req">Required</span></td></tr>
                 <tr><td>Email</td><td>Email</td><td><span class="tag tag-req">Required</span></td></tr>
@@ -1026,7 +334,19 @@
             </table>
             <div class="callout callout-info">
               <span class="callout-icon">💡</span>
-              <div>The GF <strong>Name</strong> field type stores first and last name together under one field ID, but exposes sub-IDs: <code>ID.3</code> = First Name, <code>ID.6</code> = Last Name. You'll use these in the notification message body.</div>
+              <div>The GF <strong>Name</strong> field type stores first and last name together under one field ID but exposes sub-IDs: <code>ID.3</code> = First Name, <code>ID.6</code> = Last Name. You'll use these in the notification message body.</div>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-head"><div class="step-dot">03</div>
+            <div><div class="step-title">Populate the Branch dropdown</div><div class="step-sub">Use the finalised branch list from your client contact</div></div>
+          </div>
+          <div class="step-body">
+            <p>Click the Branch dropdown field → <strong>Field Settings</strong> → add each branch name as a choice. These values must match your client-confirmed branch list exactly.</p>
+            <div class="callout callout-warn">
+              <span class="callout-icon">⚠️</span>
+              <div>Do not guess or approximate branch names. Every branch name here must match the conditional logic value you set in each notification exactly — including spacing and capitalisation.</div>
             </div>
           </div>
         </div>
@@ -1042,15 +362,10 @@
           <p>Two types: static brand values and dynamic UTM campaign tracking</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">01</div>
-            <div>
-              <div class="step-title">Add static hidden fields — Brand and Lead Source</div>
-              <div class="step-sub">These values never change — they identify which brand and form the lead came from</div>
-            </div>
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Add static hidden fields — Brand and Lead Source</div><div class="step-sub">These values never change — they identify which brand and form the lead came from</div></div>
           </div>
           <div class="step-body">
             <p>Add two <strong>Hidden</strong> field types. For each:</p>
@@ -1063,20 +378,15 @@
             <table class="g-table" style="margin-top:14px">
               <thead><tr><th>Field Label</th><th>Default Value</th></tr></thead>
               <tbody>
-                <tr><td>Brand</td><td><code>Buco SA</code> &nbsp;(use your exact brand name)</td></tr>
+                <tr><td>Brand</td><td><code>Buco SA</code></td></tr>
                 <tr><td>Lead Source</td><td><code>Buco SA Website - Contact Us</code></td></tr>
               </tbody>
             </table>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">02</div>
-            <div>
-              <div class="step-title">Add UTM + GCLID tracking hidden fields</div>
-              <div class="step-sub">Captures Google Ads and campaign attribution data automatically from the URL</div>
-            </div>
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Add UTM + GCLID tracking hidden fields</div><div class="step-sub">Captures Google Ads and campaign attribution data automatically from the URL</div></div>
           </div>
           <div class="step-body">
             <p>Add 6 more <strong>Hidden</strong> fields. For <strong>each one</strong>:</p>
@@ -1099,7 +409,7 @@
             </table>
             <div class="callout callout-warn">
               <span class="callout-icon">⚠️</span>
-              <div><strong>Critical:</strong> The "Allow field to be populated dynamically" checkbox must be ticked, and the Parameter Name must be filled in. Without both, UTM data will not be captured even if someone arrives from a paid campaign.</div>
+              <div><strong>Critical:</strong> The "Allow field to be populated dynamically" checkbox must be ticked AND the Parameter Name must be filled in. Without both, UTM data will not be captured.</div>
             </div>
           </div>
         </div>
@@ -1115,62 +425,48 @@
           <p>One email notification per branch — conditional logic routes each submission to the correct manager</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">01</div>
-            <div>
-              <div class="step-title">Navigate to Notifications for your form</div>
-            </div>
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Navigate to Notifications for your form</div></div>
           </div>
           <div class="step-body">
             <code class="nav-path">Forms <span>→</span> [Your Form] <span>→</span> Settings <span>→</span> Notifications <span>→</span> Add New</code>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">02</div>
-            <div>
-              <div class="step-title">Fill in the notification fields</div>
-              <div class="step-sub">Set this up for your first branch — you'll duplicate it for all others</div>
-            </div>
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Fill in the notification fields</div><div class="step-sub">Set this up for your first branch — you'll duplicate it for all others</div></div>
           </div>
           <div class="step-body">
             <table class="g-table">
               <thead><tr><th>Field</th><th>Value</th></tr></thead>
               <tbody>
-                <tr><td>Name</td><td><code>Branch — [Branch Name]</code>&nbsp; e.g. <code>Branch — Alberton</code></td></tr>
+                <tr><td>Name</td><td><code>Branch — [Branch Name]</code></td></tr>
                 <tr><td>Send To</td><td>Enter Email <em>(select this radio button)</em></td></tr>
                 <tr><td>Send To Email</td><td>Branch manager's email address</td></tr>
-                <tr><td>From Name</td><td>Your brand name, e.g. <code>Buco SA</code></td></tr>
+                <tr><td>From Name</td><td><code>Buco SA</code></td></tr>
                 <tr><td>From Email</td><td><code>{admin_email}</code> <em>(leave as default)</em></td></tr>
                 <tr><td>Reply To</td><td>Click <code>{...}</code> and select the Email field</td></tr>
-                <tr><td>Subject</td><td><code>New Enquiry — [Brand] [Branch Name]</code></td></tr>
+                <tr><td>Subject</td><td><code>New Enquiry — Buco SA [Branch Name]</code></td></tr>
               </tbody>
             </table>
             <div class="callout callout-info">
               <span class="callout-icon">💡</span>
-              <div>Setting <strong>Reply To</strong> to the customer's email field means when the branch manager hits Reply in their email client, it replies directly to the customer — not to your WordPress site email.</div>
+              <div>Setting <strong>Reply To</strong> to the customer's email means when the branch manager hits Reply, it goes directly to the customer — not to the WordPress admin email.</div>
             </div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">03</div>
-            <div>
-              <div class="step-title">Write the message body</div>
-              <div class="step-sub">Use GF merge tags — click {…} to browse or type field IDs directly</div>
-            </div>
+          <div class="step-head"><div class="step-dot">03</div>
+            <div><div class="step-title">Write the message body</div><div class="step-sub">Use GF merge tags — click {…} to browse or type field IDs directly</div></div>
           </div>
           <div class="step-body">
-            <p>First, check your field IDs: click each field in the Form Editor and look at the <strong>Field Settings panel on the right</strong> — the ID is shown in the top-right corner of that panel.</p>
+            <p>Check your field IDs by clicking each field in the Form Editor — the ID shows in the top-right of the Field Settings panel.</p>
             <p>The Name field uses sub-IDs: <code>FIELD_ID.3</code> = First Name, <code>FIELD_ID.6</code> = Last Name.</p>
             <div class="code-wrap">
               <div class="code-label">Message Template — replace X with your actual field IDs</div>
-              <div class="code-block">You have received a new enquiry via the [Brand] website.
+              <div class="code-block">You have received a new enquiry via the Buco SA website.
 
 Name:     {Name (First):X.3} {Name (Last):X.6}
 Email:    {Email:X}
@@ -1180,39 +476,29 @@ Message:  {Message:X}</div>
             </div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">04</div>
-            <div>
-              <div class="step-title">Enable Conditional Logic</div>
-              <div class="step-sub">This is the routing mechanism — without it, every branch gets every submission</div>
-            </div>
+          <div class="step-head"><div class="step-dot">04</div>
+            <div><div class="step-title">Enable Conditional Logic</div><div class="step-sub">Without this, every branch receives every submission</div></div>
           </div>
           <div class="step-body">
             <p>Scroll to the bottom of the notification. Tick <strong>"Enable conditional logic"</strong>.</p>
             <div class="code-block">Send this notification if ALL of the following match:
 Branch  |  is  |  [Branch Name]</div>
-            <p style="margin-top:10px">Save the notification. You should now see it listed under Notifications with an <strong>Active</strong> badge.</p>
+            <p style="margin-top:10px">Save. The notification should appear in the list with an <strong>Active</strong> badge.</p>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">05</div>
-            <div>
-              <div class="step-title">Duplicate for all remaining branches</div>
-              <div class="step-sub">Hover over the notification in the list → Duplicate option appears</div>
-            </div>
+          <div class="step-head"><div class="step-dot">05</div>
+            <div><div class="step-title">Duplicate for all remaining branches</div><div class="step-sub">Hover over the notification in the list → Duplicate option appears</div></div>
           </div>
           <div class="step-body">
             <p>For each duplicate, only change these <strong>3 things</strong>:</p>
             <ul class="checklist">
               <li><div class="check-sq"></div><strong>Notification Name</strong> — update to the new branch name</li>
-              <li><div class="check-sq"></div><strong>Send To Email</strong> — update to that branch's manager email</li>
+              <li><div class="check-sq"></div><strong>Send To Email</strong> — update to that branch manager's email</li>
               <li><div class="check-sq"></div><strong>Conditional Logic value</strong> — update the branch dropdown value to match</li>
             </ul>
-            <p>The message body, From Name, Reply To, and Subject format all carry over from the duplicate — you only update the branch-specific parts.</p>
+            <p>Message body, From Name, Reply To, and Subject format all carry over from the duplicate.</p>
           </div>
         </div>
       </div>
@@ -1227,178 +513,354 @@ Branch  |  is  |  [Branch Name]</div>
           <p>Maps GF form fields to Zoho CRM lead fields — done once per form</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">01</div>
-            <div>
-              <div class="step-title">Create a new Zoho CRM feed</div>
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Add Lead Source value to Zoho CRM picklist first</div><div class="step-sub">Must exist in Zoho before the feed will map it correctly</div></div>
+          </div>
+          <div class="step-body">
+            <p>Before creating the feed, go to Zoho CRM and add your Lead Source values to the picklist:</p>
+            <code class="nav-path">Zoho CRM <span>→</span> Setup <span>→</span> Leads <span>→</span> Fields <span>→</span> Lead Source <span>→</span> Edit</code>
+            <p>Add the following values if they don't already exist:</p>
+            <div class="code-block">Buco SA Website - Contact Us
+Buco SA Website - Request a Quote</div>
+            <div class="callout callout-warn">
+              <span class="callout-icon">⚠️</span>
+              <div>If the Lead Source value doesn't exist as a picklist option in Zoho, it will not map correctly through the GF feed. Add it here first, then proceed to create the feed.</div>
             </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Create a new Zoho CRM feed</div></div>
           </div>
           <div class="step-body">
             <code class="nav-path">Form <span>→</span> Settings <span>→</span> Zoho CRM <span>→</span> Add New</code>
             <table class="g-table" style="margin-top:12px">
               <thead><tr><th>Setting</th><th>Value</th></tr></thead>
               <tbody>
-                <tr><td>Feed Name</td><td><code>[Brand] — [Form Type]</code>&nbsp; e.g. <code>Buco SA — Contact Us</code></td></tr>
+                <tr><td>Feed Name</td><td><code>Buco SA — Contact Us</code></td></tr>
                 <tr><td>Action</td><td>Create a New Lead</td></tr>
               </tbody>
             </table>
-            <p>Click <strong>Save Settings →</strong> to reveal the full field mapping section below.</p>
+            <p>Click <strong>Save Settings →</strong> to reveal the full field mapping section.</p>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">02</div>
-            <div>
-              <div class="step-title">Map the standard fields (top section)</div>
-              <div class="step-sub">These are standard Zoho CRM fields — use the dropdown to select GF fields</div>
-            </div>
+          <div class="step-head"><div class="step-dot">03</div>
+            <div><div class="step-title">Map the standard fields</div></div>
           </div>
           <div class="step-body">
             <div class="map-rows">
-              <div class="map-row"><span class="map-key">Company</span><span class="map-arrow">→</span><span class="map-val">Brand <em>(hidden field — shows your brand name)</em></span></div>
+              <div class="map-row"><span class="map-key">Company</span><span class="map-arrow">→</span><span class="map-val">Brand <em>(hidden field — shows "Buco SA")</em></span></div>
               <div class="map-row"><span class="map-key">Email</span><span class="map-arrow">→</span><span class="map-val">Email</span></div>
               <div class="map-row"><span class="map-key">First Name</span><span class="map-arrow">→</span><span class="map-val">Name (First)</span></div>
               <div class="map-row"><span class="map-key">Last Name</span><span class="map-arrow">→</span><span class="map-val">Name (Last)</span></div>
             </div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">03</div>
-            <div>
-              <div class="step-title">Map custom fields using Key / Value rows</div>
-              <div class="step-sub">Click + to add each row. Branch, Brand, Lead_Source need the Custom Key option</div>
-            </div>
+          <div class="step-head"><div class="step-dot">04</div>
+            <div><div class="step-title">Map custom fields using Key / Value rows</div><div class="step-sub">Click + to add each row — use Custom Key if fields don't appear in the dropdown</div></div>
           </div>
           <div class="step-body">
             <div class="callout callout-warn">
               <span class="callout-icon">⚠️</span>
-              <div><strong>Important:</strong> Custom fields like Branch, Brand, and Topic may not appear in the Key dropdown even after clearing the cache. If they don't appear, select <strong>Custom Key</strong> from the dropdown and type the field name manually. The spelling must match exactly — it is case-sensitive.</div>
+              <div>Custom fields like Branch and Brand may not appear in the Key dropdown. If they don't, select <strong>Custom Key</strong> and type the field name manually. Spelling is case-sensitive — copy exactly as shown below.</div>
             </div>
             <div class="map-rows" style="margin-top:14px">
               <div class="map-row"><span class="map-key">Phone</span><span class="map-arrow">→</span><span class="map-val">Mobile Phone <em>(GF field)</em></span></div>
               <div class="map-row"><span class="map-key">Branch</span><span class="map-arrow">→</span><span class="map-val">Branch <em>(GF dropdown field)</em></span></div>
               <div class="map-row"><span class="map-key">Brand</span><span class="map-arrow">→</span><span class="map-val">Brand <em>(hidden field)</em></span></div>
               <div class="map-row"><span class="map-key">Lead_Source</span><span class="map-arrow">→</span><span class="map-val">Lead Source <em>(hidden field)</em></span></div>
-              <div class="map-row"><span class="map-key">Topic</span><span class="map-arrow">→</span><span class="map-val">Choose a Topic <em>(if form has this field)</em></span></div>
-            </div>
-            <div class="callout callout-info" style="margin-top:12px">
-              <span class="callout-icon">💡</span>
-              <div>If your form has address fields (Street, City, Province, Postal Code), add them as additional Key/Value rows: <code>Street</code>, <code>City</code>, <code>State</code>, <code>Zip</code> mapped to their respective GF address sub-fields.</div>
             </div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">04</div>
-            <div>
-              <div class="step-title">Map Lead Description and set Options</div>
-            </div>
+          <div class="step-head"><div class="step-dot">05</div>
+            <div><div class="step-title">Map Lead Description and set Options</div></div>
           </div>
           <div class="step-body">
-            <p>Scroll down to <strong>Lead Description</strong>. Click the <code>{...}</code> merge tag button and select your Message/Comments field. This maps the message body to the Description field in Zoho.</p>
-            <p style="margin-top: 10px">Under <strong>Options</strong>:</p>
+            <p>Scroll to <strong>Lead Description</strong>. Click <code>{...}</code> and select the Message field.</p>
+            <p style="margin-top:10px">Under <strong>Options</strong>:</p>
             <ul class="checklist">
-              <li><div class="check-sq"></div>Tick <strong>"Allow duplicate leads"</strong> — prevents the CRM from blocking submissions from returning customers</li>
-              <li><div class="check-sq"></div>Leave Approval Mode, Workflow Mode, Email Opt Out unticked</li>
+              <li><div class="check-sq"></div>Tick <strong>"Allow duplicate leads"</strong></li>
+              <li><div class="check-sq"></div>Leave everything else unticked</li>
             </ul>
-            <p style="margin-top:10px">Leave Lead Owner, Lead Rating, Lead Source dropdown, Lead Status all as <code>-None-</code>.</p>
-            <p>Click <strong>Save Settings →</strong></p>
+            <p>Leave Lead Owner, Lead Rating, Lead Source dropdown, Lead Status all as <code>-None-</code>. Click <strong>Save Settings →</strong></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6 -->
+    <!-- SECTION 6 — POPIA -->
     <section class="section reveal" id="s6">
       <div class="section-header">
         <div class="section-num-block">6</div>
+        <div>
+          <h2>POPIA Consent Field</h2>
+          <p>Required for South African compliance — must be on every form before go-live</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Add a Consent field to the form</div><div class="step-sub">Use the GF Consent field type — not a standard checkbox</div></div>
+          </div>
+          <div class="step-body">
+            <p>In the Form Editor, under <strong>Advanced Fields</strong>, add a <strong>Consent</strong> field. Place it directly above the Submit button.</p>
+            <table class="g-table" style="margin-top:12px">
+              <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Field Label</td><td><code>Consent</code></td></tr>
+                <tr><td>Checkbox Label</td><td><code>I agree to the privacy policy.</code></td></tr>
+                <tr><td>Required</td><td>✅ Yes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Add the consent description with a linked Privacy Policy</div><div class="step-sub">The Description field supports HTML — use it to add the live link</div></div>
+          </div>
+          <div class="step-body">
+            <p>In the <strong>Description</strong> field of the Consent field settings, paste the following HTML — replacing the privacy policy URL with Buco SA's actual URL:</p>
+            <div class="code-wrap">
+              <div class="code-label">Consent Description HTML</div>
+              <div class="code-block">I consent to Buco SA collecting and processing my personal
+information submitted in this form for the purpose of responding
+to my enquiry. My information may be shared with the relevant
+branch and sales team. It will be handled in accordance with the
+Protection of Personal Information Act (POPIA) and
+&lt;a href="https://buco.co.za/privacy-policy/" target="_blank"&gt;
+Buco SA's Privacy Policy&lt;/a&gt;.
+I understand I may request access to or deletion of my personal
+information at any time.</div>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">💡</span>
+              <div>Replace <code>https://buco.co.za/privacy-policy/</code> with the actual Buco SA privacy policy URL. Confirm this URL exists and is accessible before go-live.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 — DUPLICATE -->
+    <section class="section reveal" id="s7">
+      <div class="section-header">
+        <div class="section-num-block">7</div>
+        <div>
+          <h2>Duplicate for Additional Forms</h2>
+          <p>Once Contact Us is working, use it as the base for Request a Quote and any other forms</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Duplicate the Contact Us form</div></div>
+          </div>
+          <div class="step-body">
+            <code class="nav-path">Forms <span>→</span> hover over Contact Us form <span>→</span> Duplicate</code>
+            <p>Rename the duplicate to <code>Buco SA — Request a Quote</code>.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Update these 3 things on the duplicate</div><div class="step-sub">Everything else — branch dropdown, hidden fields, consent, notifications — carries over</div></div>
+          </div>
+          <div class="step-body">
+            <table class="g-table">
+              <thead><tr><th>What to Change</th><th>Where</th><th>New Value</th></tr></thead>
+              <tbody>
+                <tr><td>Lead Source hidden field</td><td>Form Editor → Lead Source field → Advanced → Default Value</td><td><code>Buco SA Website - Request a Quote</code></td></tr>
+                <tr><td>CRM Feed Name</td><td>Form Settings → Zoho CRM → feed</td><td><code>Buco SA — Request a Quote</code></td></tr>
+                <tr><td>Notification subjects</td><td>Each branch notification → Subject field</td><td><code>New Quote Request — Buco SA [Branch]</code></td></tr>
+              </tbody>
+            </table>
+            <div class="callout callout-info">
+              <span class="callout-icon">💡</span>
+              <div>The branch notifications carry over from the duplicate — you only need to update the Subject line on each one. The conditional logic, Send To email, and message body all stay the same.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section class="section reveal" id="s10">
+      <div class="section-header">
+        <div class="section-num-block">10</div>
         <div>
           <h2>Test &amp; Verify</h2>
           <p>Always test before going live — check both GF entry notes and Zoho CRM</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">01</div>
-            <div>
-              <div class="step-title">Submit a test entry on the live form</div>
-            </div>
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Submit a test entry on the live form</div></div>
           </div>
           <div class="step-body">
-            <p>Navigate to the live form page on the front-end. Fill in all fields with test data. Select a specific branch. Include a message. Use a real email address so you can verify the notification.</p>
+            <p>Navigate to the live form on the front-end. Fill in all fields. Select a specific branch. Include a message. Tick the consent checkbox. Use a real email address.</p>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">02</div>
-            <div>
-              <div class="step-title">Check GF entry notes for errors</div>
-              <div class="step-sub">This is the fastest way to catch CRM mapping errors</div>
-            </div>
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Check GF entry notes for errors</div><div class="step-sub">Fastest way to catch CRM mapping errors</div></div>
           </div>
           <div class="step-body">
             <code class="nav-path">Forms <span>→</span> [Your Form] <span>→</span> Entries <span>→</span> [Test Entry] <span>→</span> scroll to Notes</code>
-            <div class="callout callout-success">
-              <span class="callout-icon">✅</span>
-              <div><strong>Lead created. ID: [number]</strong> — CRM feed worked correctly.</div>
-            </div>
-            <div class="callout callout-success">
-              <span class="callout-icon">✅</span>
-              <div><strong>WordPress successfully passed the notification email to the sending server</strong> — branch notification sent.</div>
-            </div>
-            <div class="callout callout-error">
-              <span class="callout-icon">✗</span>
-              <div><strong>The field [X] cannot be found at Zoho CRM</strong> — custom key spelling mismatch. See Section 08 Troubleshooting.</div>
-            </div>
+            <div class="callout callout-success"><span class="callout-icon">✅</span><div><strong>Lead created. ID: [number]</strong> — CRM feed worked correctly.</div></div>
+            <div class="callout callout-success"><span class="callout-icon">✅</span><div><strong>WordPress successfully passed the notification email to the sending server</strong> — branch notification sent.</div></div>
+            <div class="callout callout-error"><span class="callout-icon">✗</span><div><strong>The field [X] cannot be found at Zoho CRM</strong> — custom key spelling mismatch. See Section 10 Troubleshooting.</div></div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">03</div>
-            <div>
-              <div class="step-title">Verify the lead in Zoho CRM</div>
-            </div>
+          <div class="step-head"><div class="step-dot">03</div>
+            <div><div class="step-title">Verify the lead in Zoho CRM</div></div>
           </div>
           <div class="step-body">
-            <p>Go to <strong>Zoho CRM → Leads</strong> and find your test lead. Confirm all fields are populated:</p>
+            <p>Go to <strong>Zoho CRM → Leads</strong> and find your test lead. Confirm:</p>
             <ul class="checklist">
               <li><div class="check-sq"></div>Name, Email, Phone</li>
-              <li><div class="check-sq"></div>Company = your brand name</li>
-              <li><div class="check-sq"></div>Lead Source = correct form source</li>
+              <li><div class="check-sq"></div>Company = Buco SA</li>
+              <li><div class="check-sq"></div>Lead Source = Buco SA Website - Contact Us</li>
               <li><div class="check-sq"></div>Branch = the branch selected in the form</li>
-              <li><div class="check-sq"></div>Brand = your brand name</li>
+              <li><div class="check-sq"></div>Brand = Buco SA</li>
               <li><div class="check-sq"></div>Description = the message typed</li>
               <li><div class="check-sq"></div>Layout = Website Lead Layout</li>
             </ul>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">04</div>
-            <div>
-              <div class="step-title">Verify the branch notification email was received</div>
-            </div>
+          <div class="step-head"><div class="step-dot">04</div>
+            <div><div class="step-title">Verify the branch notification email</div></div>
           </div>
           <div class="step-body">
-            <p>Check the inbox of the branch manager for the branch you selected. Verify:</p>
             <ul class="checklist">
-              <li><div class="check-sq"></div>Email arrived in the manager's inbox</li>
-              <li><div class="check-sq"></div>All form data is visible in the email body</li>
-              <li><div class="check-sq"></div>Reply-To is the customer's email, not the WordPress admin email</li>
-              <li><div class="check-sq"></div>Only the selected branch manager received it — no other branches</li>
+              <li><div class="check-sq"></div>Email arrived in the correct branch manager's inbox</li>
+              <li><div class="check-sq"></div>All form data visible in the email body</li>
+              <li><div class="check-sq"></div>Reply-To is the customer's email address</li>
+              <li><div class="check-sq"></div>No other branch managers received it</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 — CUSTOMER CONFIRMATION -->
+    <section class="section reveal" id="s8">
+      <div class="section-header">
+        <div class="section-num-block">8</div>
+        <div>
+          <h2>Customer Confirmation Email</h2>
+          <p>Sends an automatic confirmation to the customer on every submission</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Add a new notification — Customer Confirmation</div><div class="step-sub">This is separate from the branch notifications — it goes to the customer, not the manager</div></div>
+          </div>
+          <div class="step-body">
+            <code class="nav-path">Form <span>→</span> Settings <span>→</span> Notifications <span>→</span> Add New</code>
+            <table class="g-table" style="margin-top:12px">
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Name</td><td><code>Customer Confirmation</code></td></tr>
+                <tr><td>Send To</td><td>Select a Field → Email field</td></tr>
+                <tr><td>From Name</td><td><code>Buco SA</code></td></tr>
+                <tr><td>From Email</td><td><code>{admin_email}</code></td></tr>
+                <tr><td>Reply To</td><td>Leave blank</td></tr>
+                <tr><td>Subject</td><td><code>Thank you for your enquiry — Buco SA</code></td></tr>
+                <tr><td>Conditional Logic</td><td>Leave unticked — fires on every submission</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Add the message body</div><div class="step-sub">Replace X with your Name field ID — check Field Settings panel in the form editor</div></div>
+          </div>
+          <div class="step-body">
+            <div class="code-wrap">
+              <div class="code-label">Contact Us &amp; Request a Quote — Message Body</div>
+              <div class="code-block">Hi {Name (First):X.3},
+
+Thank you for reaching out to Buco SA. We have
+received your enquiry and a member of our team at
+your nearest branch will be in touch with you soon.
+
+We look forward to assisting you.
+
+Warm regards,
+The Buco SA Team</div>
+            </div>
+            <div class="callout callout-info">
+              <span class="callout-icon">💡</span>
+              <div>Replace <code>X</code> with the actual ID of the Name field. Click the Name field in the Form Editor — the ID is shown in the top-right of the Field Settings panel on the right. For a combined Name field, <code>X.3</code> = First Name and <code>X.6</code> = Last Name.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><div class="step-dot">03</div>
+            <div><div class="step-title">Disable the default Admin Notification</div><div class="step-sub">Branch notifications handle all routing — the Admin Notification is redundant</div></div>
+          </div>
+          <div class="step-body">
+            <p>When GF creates a new form it automatically adds an <strong>Admin Notification</strong> that fires on every submission and sends to the WordPress admin email. Since each branch manager has their own conditional notification, this is unnecessary and creates noise.</p>
+            <code class="nav-path">Form <span>→</span> Settings <span>→</span> Notifications <span>→</span> hover Admin Notification <span>→</span> Disable</code>
+            <div class="callout callout-info">
+              <span class="callout-icon">💡</span>
+              <div>Disabling does not delete it — you can re-enable at any time. If you want a head office catchall instead of disabling, update the Send To Email on the Admin Notification to a Buco SA head office address.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9 — THANK YOU PAGES -->
+    <section class="section reveal" id="s9">
+      <div class="section-header">
+        <div class="section-num-block">9</div>
+        <div>
+          <h2>Thank You Pages</h2>
+          <p>Redirect customers to a confirmation page after submitting — also enables GA4 conversion tracking</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-head"><div class="step-dot">01</div>
+            <div><div class="step-title">Create thank you pages in WordPress</div><div class="step-sub">One page per form type — create them under their respective parent pages</div></div>
+          </div>
+          <div class="step-body">
+            <table class="g-table">
+              <thead><tr><th>Form</th><th>Page Title</th><th>URL Slug</th></tr></thead>
+              <tbody>
+                <tr><td>Contact Us</td><td>Thank You — We'll Be In Touch</td><td><code>/contact-us/thank-you/</code></td></tr>
+                <tr><td>Request a Quote</td><td>Thank You — Quote Request Received</td><td><code>/request-a-quote/thank-you/</code></td></tr>
+              </tbody>
+            </table>
+            <div class="callout callout-info">
+              <span class="callout-icon">💡</span>
+              <div>Keep the page content minimal — a short thank you message and a link back to the homepage is all that's needed. The important thing is that the URL is unique and trackable.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-head"><div class="step-dot">02</div>
+            <div><div class="step-title">Set GF confirmation to redirect</div><div class="step-sub">Do this for each form</div></div>
+          </div>
+          <div class="step-body">
+            <code class="nav-path">Form <span>→</span> Settings <span>→</span> Confirmations <span>→</span> Default Confirmation <span>→</span> Edit</code>
+            <p>Change <strong>Confirmation Type</strong> from <strong>Text</strong> to <strong>Redirect</strong>. Paste in the full thank you page URL.</p>
+            <div class="callout callout-success">
+              <span class="callout-icon">✅</span>
+              <div><strong>GA4 Conversion Tracking benefit:</strong> Once thank you pages are live, you can set up GA4 conversion events triggered by visits to <code>/thank-you/</code> URLs. This gives you accurate form conversion data in Google Analytics without any additional code.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1406,24 +868,19 @@ Branch  |  is  |  [Branch Name]</div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 7 — REFERENCE -->
-    <section class="section reveal" id="s7">
+    <!-- SECTION 9 — REFERENCE -->
+    <section class="section reveal" id="s11">
       <div class="section-header">
-        <div class="section-num-block">7</div>
+        <div class="section-num-block">11</div>
         <div>
           <h2>Field Reference</h2>
           <p>Custom fields, key names, and naming conventions — use these exactly as written</p>
         </div>
       </div>
-
       <div class="steps">
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">→</div>
-            <div>
-              <div class="step-title">Zoho CRM — Custom Fields Already Configured</div>
-              <div class="step-sub">These exist in the Leads module. Do not recreate them.</div>
-            </div>
+          <div class="step-head"><div class="step-dot">→</div>
+            <div><div class="step-title">Zoho CRM — Custom Fields Already Configured</div><div class="step-sub">These exist in the Leads module. Do not recreate them.</div></div>
           </div>
           <div class="step-body">
             <table class="g-table">
@@ -1432,23 +889,17 @@ Branch  |  is  |  [Branch Name]</div>
                 <tr><td><code>Branch</code></td><td>Pick List</td><td>Website Lead Layout</td><td>Brand-specific branch values</td></tr>
                 <tr><td><code>Brand</code></td><td>Pick List</td><td>Website Lead Layout</td><td>e.g. Buco SA, Timbercity, Buco Namibia</td></tr>
                 <tr><td><code>Topic</code></td><td>Pick List</td><td>Website Lead Layout</td><td>Contact topic classification</td></tr>
-                <tr><td><code>TC Opt In</code></td><td>Checkbox</td><td>Website Lead Layout</td><td>Newsletter consent — Timbercity only</td></tr>
               </tbody>
             </table>
             <div class="callout callout-warn" style="margin-top:14px">
               <span class="callout-icon">⚠️</span>
-              <div>Set <strong>Website Lead Layout</strong> as the default for the Administrator profile, otherwise Branch and Brand will not be visible on lead records. Path: <strong>Setup → Leads → Layouts → Layout Assignment → Administrator → Default Layout → Website Lead Layout</strong></div>
+              <div>Set <strong>Website Lead Layout</strong> as the default for the Administrator profile or Branch and Brand will not be visible on lead records. Path: <strong>Setup → Leads → Layouts → Layout Assignment → Administrator → Default Layout → Website Lead Layout</strong></div>
             </div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">→</div>
-            <div>
-              <div class="step-title">CRM Feed Key Names — Exact Spelling Required</div>
-              <div class="step-sub">Case-sensitive — copy exactly as shown</div>
-            </div>
+          <div class="step-head"><div class="step-dot">→</div>
+            <div><div class="step-title">CRM Feed Key Names — Exact Spelling Required</div><div class="step-sub">Case-sensitive — copy exactly as shown</div></div>
           </div>
           <div class="step-body">
             <div class="map-rows">
@@ -1456,32 +907,19 @@ Branch  |  is  |  [Branch Name]</div>
               <div class="map-row"><span class="map-key">Branch</span><span class="map-arrow">→</span><span class="map-val">Branch dropdown field</span></div>
               <div class="map-row"><span class="map-key">Brand</span><span class="map-arrow">→</span><span class="map-val">Brand hidden field</span></div>
               <div class="map-row"><span class="map-key">Lead_Source</span><span class="map-arrow">→</span><span class="map-val">Lead Source hidden field</span></div>
-              <div class="map-row"><span class="map-key">Topic</span><span class="map-arrow">→</span><span class="map-val">Topic / Choose a Topic dropdown</span></div>
-              <div class="map-row"><span class="map-key">Street</span><span class="map-arrow">→</span><span class="map-val">Address — Street Address sub-field</span></div>
-              <div class="map-row"><span class="map-key">City</span><span class="map-arrow">→</span><span class="map-val">Address — City sub-field</span></div>
-              <div class="map-row"><span class="map-key">State</span><span class="map-arrow">→</span><span class="map-val">Address — State / Province sub-field</span></div>
-              <div class="map-row"><span class="map-key">Zip</span><span class="map-arrow">→</span><span class="map-val">Address — ZIP / Postal Code sub-field</span></div>
-              <div class="map-row"><span class="map-key">TC_Opt_In</span><span class="map-arrow">→</span><span class="map-val">TC Opt In radio / checkbox field</span></div>
             </div>
           </div>
         </div>
-
         <div class="step">
-          <div class="step-head">
-            <div class="step-dot">→</div>
-            <div>
-              <div class="step-title">Lead Source Naming Convention</div>
-              <div class="step-sub">Use consistent naming across all brands and forms</div>
-            </div>
+          <div class="step-head"><div class="step-dot">→</div>
+            <div><div class="step-title">Lead Source Naming Convention — Buco SA</div></div>
           </div>
           <div class="step-body">
             <table class="g-table">
               <thead><tr><th>Form Type</th><th>Lead Source Value</th></tr></thead>
               <tbody>
-                <tr><td>Contact Us</td><td><code>[Brand] Website - Contact Us</code></td></tr>
-                <tr><td>Request a Quote</td><td><code>[Brand] Website - Request a Quote</code></td></tr>
-                <tr><td>Cutting List Generator</td><td><code>[Brand] Website - Cutting List</code></td></tr>
-                <tr><td>Newsletter Signup</td><td><code>[Brand] Website - Newsletter</code></td></tr>
+                <tr><td>Contact Us</td><td><code>Buco SA Website - Contact Us</code></td></tr>
+                <tr><td>Request a Quote</td><td><code>Buco SA Website - Request a Quote</code></td></tr>
               </tbody>
             </table>
           </div>
@@ -1489,81 +927,71 @@ Branch  |  is  |  [Branch Name]</div>
       </div>
     </section>
 
-    <!-- SECTION 8 — TROUBLESHOOTING -->
-    <section class="section reveal" id="s8">
+    <!-- SECTION 10 — TROUBLESHOOTING -->
+    <section class="section reveal" id="s12">
       <div class="section-header">
-        <div class="section-num-block">8</div>
+        <div class="section-num-block">12</div>
         <div>
           <h2>Troubleshooting</h2>
-          <p>Common errors encountered during setup and how to resolve them</p>
+          <p>Common errors and how to resolve them</p>
         </div>
       </div>
 
       <div class="trouble-item">
-        <div class="trouble-head">
-          <div class="trouble-icon">⚠️</div>
-          <div class="trouble-title">The field [Branch / Brand / Topic] cannot be found at Zoho CRM</div>
-        </div>
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">The field [Branch / Brand] cannot be found at Zoho CRM</div></div>
         <div class="trouble-body">
-          <p><strong>Cause:</strong> The Custom Key in the GF feed doesn't match the field's API name in Zoho CRM. Field names are case-sensitive.</p>
-          <p><strong>Fix:</strong> Go to the CRM feed, find the affected row, and check the key spelling exactly. Use <code>Branch</code> not <code>branch</code>, <code>Lead_Source</code> not <code>Lead Source</code>. If unsure, go to <strong>Zoho CRM → Setup → Leads → Fields</strong> to see the exact field label.</p>
+          <p><strong>Cause:</strong> The Custom Key in the GF feed doesn't match the field's API name in Zoho CRM. Case-sensitive.</p>
+          <p><strong>Fix:</strong> Check the key spelling exactly. Use <code>Branch</code> not <code>branch</code>, <code>Lead_Source</code> not <code>Lead Source</code>. Go to <strong>Zoho CRM → Setup → Leads → Fields</strong> to verify exact field names.</p>
         </div>
       </div>
 
       <div class="trouble-item">
-        <div class="trouble-head">
-          <div class="trouble-icon">⚠️</div>
-          <div class="trouble-title">Branch / Brand / Topic not appearing in the Key dropdown</div>
-        </div>
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">Branch / Brand not appearing in the Key dropdown</div></div>
         <div class="trouble-body">
-          <p><strong>Cause:</strong> GF has cached an older version of the Zoho field list that doesn't include the custom fields.</p>
+          <p><strong>Cause:</strong> GF has cached an older field list that doesn't include custom fields.</p>
           <p><strong>Fix 1:</strong> Go to <strong>Forms → Settings → Zoho CRM → Clear Custom Fields Cache</strong>, then return to the feed.</p>
-          <p><strong>Fix 2:</strong> If it still doesn't appear, select <strong>Custom Key</strong> from the dropdown and type the field name manually (e.g. <code>Branch</code>). This works identically to selecting from the dropdown.</p>
+          <p><strong>Fix 2:</strong> Select <strong>Custom Key</strong> from the dropdown and type the field name manually. Works identically to selecting from the dropdown.</p>
         </div>
       </div>
 
       <div class="trouble-item">
-        <div class="trouble-head">
-          <div class="trouble-icon">⚠️</div>
-          <div class="trouble-title">Branch and Brand are not visible on the lead record in Zoho CRM</div>
-        </div>
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">Branch and Brand not visible on the lead record in Zoho CRM</div></div>
         <div class="trouble-body">
-          <p><strong>Cause:</strong> The lead was created using the Standard layout, which does not include the custom fields. The data is present but not displayed.</p>
-          <p><strong>Fix (individual lead):</strong> Open the lead → click <strong>Edit</strong> → <strong>Change Layout</strong> → select <strong>Website Lead Layout</strong>.</p>
-          <p><strong>Fix (all future leads):</strong> Go to <strong>Zoho CRM → Setup → Leads → Layouts → Layout Assignment</strong>. Set <strong>Website Lead Layout</strong> as the default for the Administrator profile. Save.</p>
+          <p><strong>Cause:</strong> Lead is using Standard layout, which doesn't include custom fields. Data is present but not displayed.</p>
+          <p><strong>Fix (individual lead):</strong> Open the lead → Edit → Change Layout → Website Lead Layout.</p>
+          <p><strong>Fix (all future leads):</strong> Setup → Leads → Layouts → Layout Assignment → set Website Lead Layout as default for Administrator.</p>
         </div>
       </div>
 
       <div class="trouble-item">
-        <div class="trouble-head">
-          <div class="trouble-icon">⚠️</div>
-          <div class="trouble-title">Lead already exists — second test submission blocked</div>
-        </div>
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">Lead already exists — second test submission blocked</div></div>
         <div class="trouble-body">
-          <p><strong>Cause:</strong> You submitted a test using the same email address twice. Zoho CRM blocks duplicate leads by email address unless "Allow duplicate leads" is ticked.</p>
-          <p><strong>Fix:</strong> In the CRM feed → Options → tick <strong>"Allow duplicate leads"</strong>. Or use a different email address for subsequent tests.</p>
+          <p><strong>Cause:</strong> Same email used twice. Zoho blocks duplicates unless "Allow duplicate leads" is ticked.</p>
+          <p><strong>Fix:</strong> CRM feed → Options → tick <strong>"Allow duplicate leads"</strong>. Or use a different email for subsequent tests.</p>
         </div>
       </div>
 
       <div class="trouble-item">
-        <div class="trouble-head">
-          <div class="trouble-icon">⚠️</div>
-          <div class="trouble-title">Wrong branch manager received the notification</div>
-        </div>
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">Wrong branch manager received the notification</div></div>
         <div class="trouble-body">
-          <p><strong>Cause:</strong> The conditional logic value on a notification doesn't exactly match the branch dropdown option value.</p>
-          <p><strong>Fix:</strong> Open the notification → scroll to Conditional Logic → check the branch value in the condition. It must match the dropdown option exactly, including spacing and capitalisation (e.g. <code>East London (Beacon Bay)</code> not <code>East London</code>).</p>
+          <p><strong>Cause:</strong> Conditional logic value doesn't exactly match the branch dropdown option.</p>
+          <p><strong>Fix:</strong> Open the notification → Conditional Logic → check the branch value matches exactly, including spacing and capitalisation (e.g. <code>East London (Beacon Bay)</code> not <code>East London</code>).</p>
         </div>
       </div>
 
       <div class="trouble-item">
-        <div class="trouble-head">
-          <div class="trouble-icon">⚠️</div>
-          <div class="trouble-title">Lead Description / Message not appearing in CRM</div>
-        </div>
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">Lead Description / Message not appearing in CRM</div></div>
         <div class="trouble-body">
-          <p><strong>Cause:</strong> The message field was mapped as a Custom Key row (<code>Description</code>) rather than using the dedicated Lead Description text area in the feed.</p>
-          <p><strong>Fix:</strong> Remove the <code>Description</code> custom key row from the feed. Instead, scroll down to the <strong>Lead Description</strong> text area and click <code>{...}</code> → select the Message field. This uses the correct Zoho API endpoint for description.</p>
+          <p><strong>Cause:</strong> Message mapped as a Custom Key row instead of the dedicated Lead Description field.</p>
+          <p><strong>Fix:</strong> Remove the <code>Description</code> custom key row. Scroll to <strong>Lead Description</strong> text area → click <code>{...}</code> → select the Message field.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-head"><div class="trouble-icon">⚠️</div><div class="trouble-title">Lead Source not mapping — value not found in Zoho</div></div>
+        <div class="trouble-body">
+          <p><strong>Cause:</strong> The Lead Source value (e.g. <code>Buco SA Website - Contact Us</code>) doesn't exist as a picklist option in Zoho CRM's Lead Source field.</p>
+          <p><strong>Fix:</strong> Go to <strong>Zoho CRM → Setup → Leads → Fields → Lead Source → Edit picklist</strong> and add the missing value. Then retest the form submission.</p>
         </div>
       </div>
 
@@ -1572,7 +1000,6 @@ Branch  |  is  |  [Branch Name]</div>
   </main>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
@@ -1585,7 +1012,6 @@ Branch  |  is  |  [Branch Name]</div>
 </footer>
 
 <script>
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -1597,7 +1023,6 @@ Branch  |  is  |  [Branch Name]</div>
   }, { threshold: 0.08 });
   reveals.forEach(r => revealObs.observe(r));
 
-  // TOC active state
   const sections = document.querySelectorAll('.section, .prereq-card');
   const tocLinks = document.querySelectorAll('.toc-link');
   const tocObs = new IntersectionObserver((entries) => {
