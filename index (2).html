@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Documentation | Algorithm Agency × The Building Company</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-bg:       #05070b;
+    --dark-bg2:      #0f1520;
+    --dark-bg-light: #172032;
+    --dark-card:     #1e293b;
+    --dark-card-hover: #263348;
+    --dark-text:     #f0f2f7;
+    --dark-text-sub: #b8c0d4;
+    --dark-text-muted: #8a94b0;
+    --light-bg:      #f5f7fa;
+    --light-bg-alt:  #ffffff;
+    --light-text:    #0f1520;
+    --light-text-sub: #4b5563;
+    --light-text-muted: #6b7280;
+    --accent:        #4f8cff;
+    --accent-glow:   rgba(79,140,255,0.12);
+    --accent2:       #00e0a0;
+    --accent2-glow:  rgba(0,224,160,0.10);
+    --gradient:      linear-gradient(135deg, #4f8cff 0%, #00e0a0 100%);
+    --font-sans:     'Space Grotesk', -apple-system, sans-serif;
+    --font-mono:     'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: rgba(5,7,11,0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .header-logo {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .header-wordmark {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark-text);
+    letter-spacing: -0.01em;
+  }
+
+  .header-sep {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .header-doc {
+    font-size: 13px;
+    color: var(--dark-text-muted);
+    font-weight: 400;
+  }
+
+  .header-badge {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(79,140,255,0.1);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(79,140,255,0.2);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--dark-bg);
+    padding: 88px 2rem 72px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(79,140,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -60px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,224,160,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 40px;
+    background: var(--gradient);
+    border-radius: 3px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--dark-text);
+  }
+
+  .hero-sub {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--dark-text-sub);
+    max-width: 620px;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-chip {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--dark-text-muted);
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* ── META BAR ── */
+  .meta-bar {
+    background: var(--dark-bg-light);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .meta-bar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 2rem;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark-text-muted);
+  }
+
+  .meta-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark-text-sub);
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 2rem 88px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(79,140,255,0.3), transparent);
+  }
+
+  /* ── DOC GRID ── */
+  .doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .doc-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 24px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .doc-card:hover {
+    border-color: rgba(79,140,255,0.25);
+    box-shadow: 0 8px 32px rgba(79,140,255,0.08);
+    transform: translateY(-2px);
+  }
+
+  .doc-card:hover::before {
+    opacity: 1;
+  }
+
+  .doc-card.coming-soon {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .doc-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .doc-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(79,140,255,0.1), rgba(0,224,160,0.08));
+    border: 1px solid rgba(79,140,255,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .doc-status {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .status-live {
+    background: rgba(0,224,160,0.1);
+    color: var(--accent2);
+    border: 1px solid rgba(0,224,160,0.2);
+  }
+
+  .status-soon {
+    background: rgba(255,255,255,0.05);
+    color: var(--dark-text-muted);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .status-wip {
+    background: rgba(255,200,50,0.08);
+    color: #f59e0b;
+    border: 1px solid rgba(255,200,50,0.15);
+  }
+
+  .doc-num {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .doc-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark-text);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .doc-desc {
+    font-size: 13px;
+    color: var(--dark-text-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .doc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .doc-tag {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.04);
+    color: var(--dark-text-muted);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .doc-arrow {
+    font-size: 13px;
+    color: var(--accent);
+    margin-top: auto;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .doc-card:hover .doc-arrow {
+    gap: 10px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    margin: 48px 0;
+  }
+
+  /* ── INFO CARDS ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+
+  .info-card {
+    background: var(--dark-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .info-card-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .info-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 8px;
+  }
+
+  .info-card-body {
+    font-size: 12.5px;
+    color: var(--dark-text-muted);
+    line-height: 1.6;
+  }
+
+  .info-card-body a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .info-card-body a:hover {
+    text-decoration: underline;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark-bg-light);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 2rem;
+    text-align: center;
+  }
+
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo-mark {
+    width: 28px; height: 28px;
+    background: var(--gradient);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 12px;
+    color: white;
+  }
+
+  .footer-logo-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--dark-text);
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--dark-text-muted);
+    line-height: 1.8;
+  }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 1.25rem 48px; }
+    .header-inner { padding: 14px 1.25rem; }
+    .header-doc { display: none; }
+    .meta-bar-inner { gap: 20px; padding: 12px 1.25rem; }
+    .main { padding: 40px 1.25rem 60px; }
+    .doc-grid { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="header-logo">A</div>
+      <span class="header-wordmark">Algorithm</span>
+      <div class="header-sep"></div>
+      <span class="header-doc">Developer Documentation</span>
+    </div>
+    <span class="header-badge">Internal Use Only</span>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">The Building Company — Dev Docs</div>
+    <h1>Technical <span class="gradient-text">Documentation</span><br>Hub</h1>
+    <p class="hero-sub">All developer documentation for The Building Company's digital infrastructure — prepared and maintained by Algorithm Agency. Use these guides to set up, replicate, and maintain integrations across all brands.</p>
+    <div class="hero-chips">
+      <span class="hero-chip">Buco SA</span>
+      <span class="hero-chip">Buco Namibia</span>
+      <span class="hero-chip">Timbercity</span>
+      <span class="hero-chip">TBCO</span>
+      <span class="hero-chip">Zoho CRM</span>
+      <span class="hero-chip">Gravity Forms</span>
+      <span class="hero-chip">WordPress</span>
+    </div>
+  </div>
+</div>
+
+<!-- META BAR -->
+<div class="meta-bar">
+  <div class="meta-bar-inner">
+    <div class="meta-item">
+      <span class="meta-label">Prepared By</span>
+      <span class="meta-value">Algorithm Agency</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Client</span>
+      <span class="meta-value">The Building Company</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Repository</span>
+      <span class="meta-value">AlgorithmAgency / tbc-dev-docs</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Last Updated</span>
+      <span class="meta-value">May 2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Status</span>
+      <span class="meta-value" style="color: var(--accent2);">✓ Active</span>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- INTEGRATIONS -->
+  <div class="section-label reveal">Integrations</div>
+  <div class="doc-grid reveal">
+
+    <a href="buco-sa-gf-zoho-setup-guide" class="doc-card">
+      <div class="doc-card-top">
+        <div class="doc-icon">🔗</div>
+        <span class="doc-status status-live">Live</span>
+      </div>
+      <div>
+        <div class="doc-num">DOC — 01</div>
+        <div class="doc-title">GF → Zoho CRM Integration Guide</div>
+      </div>
+      <div class="doc-desc">Step-by-step setup for connecting Gravity Forms to The Building Company's Zoho CRM. Covers OAuth connection, form build, hidden fields, branch notifications, CRM feed mapping, and troubleshooting.</div>
+      <div class="doc-tags">
+        <span class="doc-tag">All Brands</span>
+        <span class="doc-tag">Gravity Forms</span>
+        <span class="doc-tag">Zoho CRM</span>
+        <span class="doc-tag">WordPress</span>
+      </div>
+      <div class="doc-arrow">View Guide →</div>
+    </a>
+
+    <div class="doc-card coming-soon">
+      <div class="doc-card-top">
+        <div class="doc-icon">📧</div>
+        <span class="doc-status status-soon">Coming Soon</span>
+      </div>
+      <div>
+        <div class="doc-num">DOC — 02</div>
+        <div class="doc-title">Zoho CRM Lead Assignment Rules</div>
+      </div>
+      <div class="doc-desc">Configure automated lead routing to sales agents by branch, brand, and lead score. Covers round robin distribution, least-loaded assignment, and follow-up task automation.</div>
+      <div class="doc-tags">
+        <span class="doc-tag">Zoho CRM</span>
+        <span class="doc-tag">Automation</span>
+        <span class="doc-tag">Lead Routing</span>
+      </div>
+    </div>
+
+    <div class="doc-card coming-soon">
+      <div class="doc-card-top">
+        <div class="doc-icon">📬</div>
+        <span class="doc-status status-soon">Coming Soon</span>
+      </div>
+      <div>
+        <div class="doc-num">DOC — 03</div>
+        <div class="doc-title">Zoho Campaigns Newsletter Integration</div>
+      </div>
+      <div class="doc-desc">Connecting Gravity Forms newsletter signups to Zoho Campaigns mailing lists via webhook. Covers opt-in handling, list segmentation by brand, and POPIA compliance.</div>
+      <div class="doc-tags">
+        <span class="doc-tag">Timbercity</span>
+        <span class="doc-tag">Zoho Campaigns</span>
+        <span class="doc-tag">Newsletter</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider reveal"></div>
+
+  <!-- COMPLIANCE -->
+  <div class="section-label reveal">Compliance</div>
+  <div class="doc-grid reveal">
+
+    <div class="doc-card coming-soon">
+      <div class="doc-card-top">
+        <div class="doc-icon">🔒</div>
+        <span class="doc-status status-soon">Coming Soon</span>
+      </div>
+      <div>
+        <div class="doc-num">DOC — 04</div>
+        <div class="doc-title">POPIA Consent Implementation</div>
+      </div>
+      <div class="doc-desc">POPIA-compliant consent field setup across all brand forms. Covers GF Consent field configuration, Zoho CRM consent tracking fields, timestamped audit trail via workflow automation.</div>
+      <div class="doc-tags">
+        <span class="doc-tag">All Brands</span>
+        <span class="doc-tag">POPIA</span>
+        <span class="doc-tag">Compliance</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider reveal"></div>
+
+  <!-- PROJECT INFO -->
+  <div class="section-label reveal">Project Info</div>
+  <div class="info-grid reveal">
+
+    <div class="info-card">
+      <div class="info-card-label">Forms In Scope</div>
+      <div class="info-card-title">6 Forms — 4 Brands</div>
+      <div class="info-card-body">
+        Buco Namibia — Contact Us<br>
+        Buco Namibia — Request a Quote<br>
+        Timbercity — Contact Us<br>
+        Timbercity — Cutting List Generator<br>
+        Timbercity — Request a Quote<br>
+        Timbercity — Newsletter Signup
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-label">Tech Stack</div>
+      <div class="info-card-title">Integration Stack</div>
+      <div class="info-card-body">
+        WordPress (self-hosted)<br>
+        Gravity Forms Elite licence<br>
+        GF Zoho CRM Add-On<br>
+        Zoho CRM (The Building Company org)<br>
+        GitHub Pages (this docs hub)
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-label">Contact</div>
+      <div class="info-card-title">Algorithm Agency</div>
+      <div class="info-card-body">
+        For questions about this documentation or the integration setup, contact the Algorithm development team.<br><br>
+        <a href="https://algorithmagency.co.za" target="_blank">algorithmagency.co.za</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="footer-logo-mark">A</div>
+      <span class="footer-logo-name">Algorithm Agency</span>
+    </div>
+    <p>Prepared for The Building Company — Internal Developer Documentation</p>
+    <p>All guides prepared and maintained by Algorithm Agency &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; Not for external distribution</p>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+
+</body>
+</html>
